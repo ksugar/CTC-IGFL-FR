@@ -1,0 +1,9 @@
+name: base
+channels:
+  - pytorch
+  - conda-forge
+  - main
+  - defaults
+dependencies:
+  - tensorboardx=2.1=py_0
+  - zarr=2.4.0=py_0

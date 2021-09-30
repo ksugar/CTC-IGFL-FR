@@ -1,0 +1,12 @@
+[
+    {
+        "dataset_name": "DIC-C2DH-HeLa/01-GT+ST-seg",
+        "model_name": "DIC-C2DH-HeLa-GT+ST-seg.pth",
+        "log_dir": "DIC-C2DH-HeLa-GT+ST-seg"
+    },
+    {
+        "dataset_name": "DIC-C2DH-HeLa/02-GT+ST-seg",
+        "model_name": "DIC-C2DH-HeLa-GT+ST-seg.pth",
+        "log_dir": "DIC-C2DH-HeLa-GT+ST-seg"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "dataset_name": "PhC-C2DL-PSC/01-GT-seg",
+        "model_name": "PhC-C2DL-PSC-GT-seg.pth",
+        "log_dir": "PhC-C2DL-PSC-GT-seg",
+        "n_crops": 10,
+        "evalinterval": -1
+    },
+    {
+        "dataset_name": "PhC-C2DL-PSC/02-GT-seg",
+        "model_name": "PhC-C2DL-PSC-GT-seg.pth",
+        "log_dir": "PhC-C2DL-PSC-GT-seg",
+        "n_crops": 10,
+        "evalinterval": -1
+    }
+]

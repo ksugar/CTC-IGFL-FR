@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "Fluo-N3DH-CHO/01-GT+ST-seg",
+        "model_name": "Fluo-N3DH-CHO-GT+ST-seg.pth",
+        "log_dir": "Fluo-N3DH-CHO-GT+ST-seg",
+        "n_epochs": 100
+    },
+    {
+        "dataset_name": "Fluo-N3DH-CHO/02-GT+ST-seg",
+        "model_name": "Fluo-N3DH-CHO-GT+ST-seg.pth",
+        "log_dir": "Fluo-N3DH-CHO-GT+ST-seg",
+        "n_epochs": 100
+    }
+]

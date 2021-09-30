@@ -1,0 +1,210 @@
+[
+    {
+        "dataset_name": "BF-C2DL-HSC/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "BF-C2DL-HSC/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "BF-C2DL-MuSC/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "BF-C2DL-MuSC/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "DIC-C2DH-HeLa/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "DIC-C2DH-HeLa/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C2DL-MSC/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C2DL-MSC/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C3DH-A549/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C3DH-A549/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C3DH-H157/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C3DH-H157/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C3DL-MDA231/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-C3DL-MDA231/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N2DH-GOWT1/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N2DH-GOWT1/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N2DL-HeLa/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N2DL-HeLa/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N3DH-CE/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N3DH-CE/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N3DH-CHO/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "Fluo-N3DH-CHO/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "PhC-C2DH-U373/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "PhC-C2DH-U373/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "PhC-C2DL-PSC/01-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    },
+    {
+        "dataset_name": "PhC-C2DL-PSC/02-GT-seg",
+        "model_name": "allGT-seg.pth",
+        "log_dir": "allGT-seg",
+        "evalinterval": -1,
+        "train_length": 10,
+        "eval_length": 10
+    }
+]

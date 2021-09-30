@@ -1,0 +1,12 @@
+[
+    {
+        "dataset_name": "Fluo-N2DL-HeLa/01-GT-seg",
+        "model_name": "Fluo-N2DL-HeLa-GT-seg.pth",
+        "log_dir": "Fluo-N2DL-HeLa-GT-seg"
+    },
+    {
+        "dataset_name": "Fluo-N2DL-HeLa/02-GT-seg",
+        "model_name": "Fluo-N2DL-HeLa-GT-seg.pth",
+        "log_dir": "ISBI2021_check/Fluo-N2DL-HeLa-GT-seg"
+    }
+]

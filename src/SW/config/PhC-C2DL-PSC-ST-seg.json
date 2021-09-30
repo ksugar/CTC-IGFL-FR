@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "PhC-C2DL-PSC/01-ST-seg",
+        "model_name": "PhC-C2DL-PSC-ST-seg.pth",
+        "log_dir": "PhC-C2DL-PSC-ST-seg",
+        "n_epochs": 100
+    },
+    {
+        "dataset_name": "PhC-C2DL-PSC/02-ST-seg",
+        "model_name": "PhC-C2DL-PSC-ST-seg.pth",
+        "log_dir": "PhC-C2DL-PSC-ST-seg",
+        "n_epochs": 100
+    }
+]

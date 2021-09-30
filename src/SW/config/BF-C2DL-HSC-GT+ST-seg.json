@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "BF-C2DL-HSC/01-GT+ST-seg",
+        "model_name": "BF-C2DL-HSC-GT+ST-seg.pth",
+        "log_dir": "BF-C2DL-HSC-GT+ST-seg",
+        "n_epochs": 20
+    },
+    {
+        "dataset_name": "BF-C2DL-HSC/02-GT+ST-seg",
+        "model_name": "BF-C2DL-HSC-GT+ST-seg.pth",
+        "log_dir": "BF-C2DL-HSC-GT+ST-seg",
+        "n_epochs": 20
+    }
+]

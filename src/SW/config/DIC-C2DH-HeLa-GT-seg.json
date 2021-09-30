@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "DIC-C2DH-HeLa/01-GT-seg",
+        "model_name": "DIC-C2DH-HeLa-GT-seg.pth",
+        "log_dir": "DIC-C2DH-HeLa-GT-seg",
+        "evalinterval": 5
+    },
+    {
+        "dataset_name": "DIC-C2DH-HeLa/02-GT-seg",
+        "model_name": "DIC-C2DH-HeLa-GT-seg.pth",
+        "log_dir": "DIC-C2DH-HeLa-GT-seg",
+        "evalinterval": 5
+    }
+]

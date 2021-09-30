@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "Fluo-C3DH-H157/01-ST-seg",
+        "model_name": "Fluo-C3DH-H157-ST-seg.pth",
+        "log_dir": "Fluo-C3DH-H157-ST-seg",
+        "n_epochs": 20
+    },
+    {
+        "dataset_name": "Fluo-C3DH-H157/02-ST-seg",
+        "model_name": "Fluo-C3DH-H157-ST-seg.pth",
+        "log_dir": "Fluo-C3DH-H157-ST-seg",
+        "n_epochs": 20
+    }
+]

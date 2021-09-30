@@ -1,0 +1,12 @@
+[
+    {
+        "dataset_name": "Fluo-N2DH-GOWT1/01-GT+ST-seg",
+        "model_name": "Fluo-N2DH-GOWT1-GT+ST-seg.pth",
+        "log_dir": "Fluo-N2DH-GOWT1-GT+ST-seg"
+    },
+    {
+        "dataset_name": "Fluo-N2DH-GOWT1/02-GT+ST-seg",
+        "model_name": "Fluo-N2DH-GOWT1-GT+ST-seg.pth",
+        "log_dir": "Fluo-N2DH-GOWT1-GT+ST-seg"
+    }
+]

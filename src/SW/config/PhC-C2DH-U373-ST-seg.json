@@ -1,0 +1,12 @@
+[
+    {
+        "dataset_name": "PhC-C2DH-U373/01-ST-seg",
+        "model_name": "PhC-C2DH-U373-ST-seg.pth",
+        "log_dir": "PhC-C2DH-U373-ST-seg"
+    },
+    {
+        "dataset_name": "PhC-C2DH-U373/02-ST-seg",
+        "model_name": "PhC-C2DH-U373-ST-seg.pth",
+        "log_dir": "PhC-C2DH-U373-ST-seg"
+    }
+]

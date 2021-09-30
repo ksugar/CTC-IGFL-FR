@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "Fluo-N3DH-CHO/01-GT-seg",
+        "model_name": "Fluo-N3DH-CHO-GT-seg.pth",
+        "log_dir": "Fluo-N3DH-CHO-GT-seg",
+        "evalinterval": 5
+    },
+    {
+        "dataset_name": "Fluo-N3DH-CHO/02-GT-seg",
+        "model_name": "Fluo-N3DH-CHO-GT-seg.pth",
+        "log_dir": "Fluo-N3DH-CHO-GT-seg",
+        "evalinterval": 5
+    }
+]

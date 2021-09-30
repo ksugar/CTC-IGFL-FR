@@ -1,0 +1,14 @@
+[
+    {
+        "dataset_name": "Fluo-C3DL-MDA231/01-GT-seg",
+        "model_name": "Fluo-C3DL-MDA231-GT-seg.pth",
+        "log_dir": "Fluo-C3DL-MDA231-GT-seg",
+        "evalinterval": 5
+    },
+    {
+        "dataset_name": "Fluo-C3DL-MDA231/02-GT-seg",
+        "model_name": "Fluo-C3DL-MDA231-GT-seg.pth",
+        "log_dir": "Fluo-C3DL-MDA231-GT-seg",
+        "evalinterval": 5
+    }
+]

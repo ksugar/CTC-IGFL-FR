@@ -1,0 +1,12 @@
+[
+    {
+        "dataset_name": "Fluo-C2DL-MSC/01-GT-seg",
+        "model_name": "Fluo-C2DL-MSC-GT-seg.pth",
+        "log_dir": "Fluo-C2DL-MSC-GT-seg"
+    },
+    {
+        "dataset_name": "Fluo-C2DL-MSC/02-GT-seg",
+        "model_name": "Fluo-C2DL-MSC-GT-seg.pth",
+        "log_dir": "Fluo-C2DL-MSC-GT-seg"
+    }
+]
