@@ -4,4 +4,4 @@ base_path=$(
     pwd -P
 )
 cd "$base_path"
-miniconda/bin/python train.py --baseconfig config/base_train_seg.json seg config/Fluo-C2DL-MSC-GT+ST-seg.json
+miniconda/bin/python train.py --baseconfig train_config/base_train_seg.json seg train_config/Fluo-C2DL-MSC-GT+ST-seg.json
