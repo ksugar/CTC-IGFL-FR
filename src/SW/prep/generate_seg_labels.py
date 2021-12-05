@@ -57,6 +57,9 @@ def main():
     else:
         sparse_data = {}
     p_input = Path(args.input)
+    if not p_input.exists():
+        print(p_input, "not found, skip.")
+        return
     p_output = Path(args.output)
     cr = args.cr
     MIN_AREA = 9
