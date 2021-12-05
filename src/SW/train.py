@@ -81,6 +81,8 @@ def main():
         config_dict = base_config_dict.copy()
         config_dict.update(config_data[i])
         config = ResetConfig(config_dict)
+        if not torch.cuda.is_available():
+            config.device = torch.device("cpu")
         n_dims = 2 + config.is_3d  # 3 or 2
         models = load_models(config, args.command)
         za_input = zarr.open(config.zpath_input, mode='r')
@@ -105,6 +107,8 @@ def main():
                 train_index.append(t)
         if args.command == 'seg':
             config = SegmentationTrainConfig(config_dict)
+            if not torch.cuda.is_available():
+                config.device = torch.device("cpu")
             print(config)
             train_datasets.append(SegmentationDatasetZarr(
                 config.zpath_input,
@@ -132,6 +136,9 @@ def main():
             ))
         elif args.command == 'flow':
             config = FlowTrainConfig(config_dict)
+            if not torch.cuda.is_available():
+                config.device = torch.device("cpu")
+            print(config)
             train_datasets.append(FlowDatasetZarr(
                 config.zpath_input,
                 config.zpath_flow_label,
