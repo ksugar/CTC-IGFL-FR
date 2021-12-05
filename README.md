@@ -6,9 +6,17 @@ Source Code used in the Cell Tracking Challenge
 - Linux OS (64-bit)
   - We tested our scripts on Ubuntu 18.04.
   - Windows and macOS are not supported.
+- Commands
+  - wget
+  - unzip
 - Internet connection
   - It is required to install Miniconda and Python modules.
   - Once the environment is set up, the script should work without internet connection.
+- GPU
+  - GPU should be compatible with `CUDA 10.1.243` (see [details](https://docs.nvidia.com/deeplearning/cudnn/archives/cudnn_765/cudnn-support-matrix/index.html))
+    - NVIDIA Ampere Architecture (e.g. GeForce RTX 3090, RTX A6000, Nvidia A100) is not supported
+  - NVIDIA driver version should be `>= 418.39`
+  - If more than one NVIDIA GPU is available, the first device will be used by default. To use another GPU device, set the environment variable `CUDA_VISIBLE_DEVICES`.
 
 ## Prepare data
 
@@ -56,5 +64,5 @@ You can download the training data from the CTC website with the following comma
 ## Run a training script
 
 ```bash
-./train-BF-C2DL-HSC-GT.sh
+./train-DIC-C2DH-HeLa.sh
 ```
