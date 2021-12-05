@@ -58,7 +58,7 @@ def main():
         sparse_data = {}
     p_input = Path(args.input)
     if not p_input.exists():
-        print(p_input, "not found, skip.")
+        print(p_input, "not found, skip generate_seg_labels.")
         return
     p_output = Path(args.output)
     cr = args.cr
@@ -79,7 +79,7 @@ def main():
                                 str(p_input / f'0{i+1}' / f't{t}.tif')
                             )
                             n_dims = len(img.shape)
-                            print(f'found {n_dims}D data')
+                            print(f'{n_dims}D data found at {p_seg}')
                             if n_dims not in (2, 3):
                                 raise ValueError(
                                     'image dimension should be 2 or 3'

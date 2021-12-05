@@ -46,7 +46,7 @@ def main():
     args = parser.parse_args()
     p = Path(args.dir)
     if not p.exists():
-        print(p, "not found, skip.")
+        print(p, "not found, skip convert_to_2d_labels.")
         return
     MIN_AREA = 9
     ref_types = (('GT',) if args.gt else ()) + ('ST',)
