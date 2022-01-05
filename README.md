@@ -28,14 +28,14 @@ The `Data/` directory should have the same structure as the one provided in the 
 Data/
 ├── DIC-C2DH-HeLa
 │   ├── 01
-│   │   ├── t000.tif
-│   │   ├── t001.tif
-│   │   ...
-│   ├── 01_GT
-│   │   ├── SEG
-│   │   └── TRA
-│   ├── 01_ST
-│   │   └── SEG
+│   │   ├── t000.tif
+│   │   ├── t001.tif
+│   │   ...
+│   ├── 01_GT
+│   │   ├── SEG
+│   │   └── TRA
+│   ├── 01_ST
+│   │   └── SEG
 ...
 ```
 
@@ -79,14 +79,14 @@ Place your data under the `Data/` directory. It should have the same structure a
 Data/
 ├── YOUR_DATA
 │   ├── 01
-│   │   ├── t000.tif
-│   │   ├── t001.tif
-│   │   ...
-│   └── 01_GT
-│       └── SEG
-│           ├── man_seg000.tif
-│           ├── man_seg001.tif
-│           ...
+│   │   ├── t000.tif
+│   │   ├── t001.tif
+│   │   ...
+│   └── 01_GT
+│       └── SEG
+│           ├── man_seg000.tif
+│           ├── man_seg001.tif
+│           ...
 ...
 ```
 
@@ -146,6 +146,25 @@ The following step is always required.
 | nmodels               | Number of models to train. If more than 1 models are trained, its outputs are averaged at evaluation phase. size                       |
 
 Dataset-specific parameters can be defined as follows (e.g. `YOUR_DATASET-GT-seg.json`).
+
+```
+SW/
+├── train_data
+│   └── YOUR_DATASET
+│       ├── 01-GT-seg
+│       │   ├── imgs.zarr
+│       │   └── seg_labels.zarr
+│       └── 02-GT-seg
+│           ├── imgs.zarr
+│           └── seg_labels.zarr
+├── models
+│   ├── YOUR_DATASET-GT-seg.pth (the file will be created if not exists)
+│   ...
+├── logs
+│   ├── YOUR_DATASET-GT-seg (the directory will be created if not exists)
+│   ...
+...
+```
 
 ```bash
 [
