@@ -14,6 +14,5 @@
     "evalinterval": 10,
     "is_3d": false,
     "batch_size": 1,
-    "nmodels": 1,
-    "contrast": 0
+    "nmodels": 1
 }

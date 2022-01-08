@@ -160,8 +160,8 @@ class SegmentationDatasetZarr(du.Dataset):
             if fg_index.any() and bg_index.any():
                 fg_mean = img_input[fg_index].mean()
                 bg_mean = img_input[bg_index].mean()
-                cr_factor = (((fg_mean - bg_mean) * uniform(0.5, 1) + bg_mean)
-                             / fg_mean)
+                cr_factor = (((fg_mean - bg_mean) * uniform(self.contrast, 1)
+                              + bg_mean) / fg_mean)
                 img_input[fg_index] *= cr_factor
         if self.rotation_angle is not None and 0 < self.rotation_angle:
             # rotate image
