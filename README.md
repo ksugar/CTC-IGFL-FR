@@ -143,9 +143,26 @@ The following step is always required.
 | evalinterval          | Every `evalinterval`th data will be used for evaluation (not used for training)                                                        |
 | is_3d                 | `true` if data is 3D                                                                                                                   |
 | batch_size            | Training batch size                                                                                                                    |
-| nmodels               | Number of models to train. If more than 1 models are trained, its outputs are averaged at evaluation phase. size                       |
+| nmodels               | Number of models to train. If more than 1 models are trained, its outputs are averaged at evaluation phase.                            |
 
 Dataset-specific parameters can be defined as follows (e.g. `YOUR_DATASET-GT-seg.json`).
+
+```bash
+[
+    {
+        "dataset_name": "YOUR_DATASET/01-GT-seg",
+        "model_name": "YOUR_DATASET-GT-seg.pth",
+        "log_dir": "YOUR_DATASET-seg"
+    },
+    {
+        "dataset_name": "YOUR_DATASET/02-GT-seg",
+        "model_name": "YOUR_DATASET-GT-seg.pth",
+        "log_dir": "YOUR_DATASET-GT-seg"
+    }
+]
+```
+
+In this case, the following file structure is expected.
 
 ```
 SW/
@@ -166,25 +183,144 @@ SW/
 ...
 ```
 
+Instead of manually preparing these files, [generate_train_config.py](src/SW/generate_train_config.py) can be used to generate an all-in-one config.
+
 ```bash
+miniconda/bin/python generate_train_config.py training.json --dataset DIC-C2DH-HeLa/01-GT-seg DIC-C2DH-HeLa/02-GT-seg --model_name DIC-C2DH-HeLa-GT-seg.pth --log_dir DIC-C2DH-HeLa-GT-seg --n_epochs 100
+```
+
+
+<details>
+<summary>Usage details</summary>
+<pre>
+usage: generate_train_config.py [-h] --dataset_name DATASET_NAME
+                                [DATASET_NAME ...] --model_name MODEL_NAME
+                                --log_dir LOG_DIR [--device DEVICE]
+                                [--patch size [size ...]] [--lr LR]
+                                [--n_crops N_CROPS] [--n_epochs N_EPOCHS]
+                                [--auto_bg_thresh AUTO_BG_THRESH]
+                                [--aug_scale_factor_base AUG_SCALE_FACTOR_BASE]
+                                [--aug_rotation_angle AUG_ROTATION_ANGLE]
+                                [--aug_contrast AUG_CONTRAST]
+                                [--evalinterval EVALINTERVAL] [--is_3d]
+                                [--batch_size BATCH_SIZE] [--nmodels NMODELS]
+                                output
+
+positional arguments:
+  output                Output file name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --dataset_name DATASET_NAME [DATASET_NAME ...]
+                        Dataset path(es) relative to train_data/.
+                        Usage: --dataset_name DIC-C2DH-HeLa/01-GT-seg DIC-C2DH-HeLa/02-GT-seg
+  --model_name MODEL_NAME
+                        Model file path relative to models/.This path is used to save the trained model.
+                        Usage: --model_name DIC-C2DH-HeLa-GT-seg.pth
+  --log_dir LOG_DIR     Log directory path relative to logs/.This path is used to save the trained model.
+                        Usage: --log_dir DIC-C2DH-HeLa-GT-seg
+  --device DEVICE       "cpu" or "cuda".
+                        default: "cuda"
+  --patch size [size ...]
+                        Patch size used for training.
+                        default: 128 128
+  --lr LR               Learning rate.
+                        default: 5e-4
+  --n_crops N_CROPS     Number of crops per training epoch.
+                        default: 1
+  --n_epochs N_EPOCHS   Number of training epochs.
+                        default: 500
+  --auto_bg_thresh AUTO_BG_THRESH
+                        Pixels with the value below auto_bg_thresh are recognized as background.
+                        The value is based on normalized intensity between 0 and 1.
+                        default: 0
+  --aug_scale_factor_base AUG_SCALE_FACTOR_BASE
+                        Used in data augmentation for scaling in the range [0, 1].
+                        default: 0
+  --aug_rotation_angle AUG_ROTATION_ANGLE
+                        Used in data augmentation for rotation in the range [0, 180].
+                        default: 0
+  --aug_contrast AUG_CONTRAST
+                        Used in data augmentation for contrast adjustment in the range [0, 1].
+                        default: 0
+  --evalinterval EVALINTERVAL
+                        Every `evalinterval`th data will be used for evaluation (not used for training).
+                        If -1 is given, all data is used for both training and evaluation.
+                        default: 10
+  --is_3d               Specify if data is 3D.
+  --batch_size BATCH_SIZE
+                        Training batch size.
+                        default: 1
+  --nmodels NMODELS     Number of models to train.
+                        If more than 1 models are trained, its outputs are averaged at evaluation phase.
+                        default: 1
+</pre>
+</details>
+
+<details>
+<summary>Output (<code>training.json</code>)</summary>
+<pre>
 [
     {
-        "dataset_name": "YOUR_DATASET/01-GT-seg",
-        "model_name": "YOUR_DATASET-GT-seg.pth",
-        "log_dir": "YOUR_DATASET-seg"
+        "dataset_name": "DIC-C2DH-HeLa/01-GT-seg",
+        "model_name": "DIC-C2DH-HeLa-GT-seg.pth",
+        "log_dir": "DIC-C2DH-HeLa-GT-seg",
+        "device": "cuda",
+        "patch": [
+            128,
+            128
+        ],
+        "lr": 0.0005,
+        "n_crops": 1,
+        "n_epochs": 100,
+        "auto_bg_thresh": 0.0,
+        "aug_scale_factor_base": 0.0,
+        "aug_rotation_angle": 0.0,
+        "aug_contrast": 0.0,
+        "evalinterval": 10,
+        "is_3d": false,
+        "batch_size": 1,
+        "nmodels": 1,
+        "dryrun": false
     },
     {
-        "dataset_name": "YOUR_DATASET/02-GT-seg",
-        "model_name": "YOUR_DATASET-GT-seg.pth",
-        "log_dir": "YOUR_DATASET-GT-seg"
+        "dataset_name": "DIC-C2DH-HeLa/02-GT-seg",
+        "model_name": "DIC-C2DH-HeLa-GT-seg.pth",
+        "log_dir": "DIC-C2DH-HeLa-GT-seg",
+        "device": "cuda",
+        "patch": [
+            128,
+            128
+        ],
+        "lr": 0.0005,
+        "n_crops": 1,
+        "n_epochs": 100,
+        "auto_bg_thresh": 0.0,
+        "aug_scale_factor_base": 0.0,
+        "aug_rotation_angle": 0.0,
+        "aug_contrast": 0.0,
+        "evalinterval": 10,
+        "is_3d": false,
+        "batch_size": 1,
+        "nmodels": 1,
+        "dryrun": false
     }
 ]
-```
+</pre>
+</details>
 
 ### 4. Run a training script
 
+1. Using a `base` config and a dataset-specific config.
+
 ```bash
-miniconda/bin/python train.py --baseconfig train_config/base_train_seg.json seg train_config/YOUR_DATASET-GT-seg.json
+miniconda/bin/python train.py --baseconfig train_config/base_train_seg.json seg train_config/YOUR_DATASET_SPECIFIC_CONFIG.json
+```
+
+2. Using an all-in-one config.
+
+```bash
+miniconda/bin/python train.py seg train_config/YOUR_ALL_IN_ONE_CONFIG.json
 ```
 
 ## Run inference with a trained model
