@@ -270,4 +270,30 @@ Run the executable `.jar` with three input parameters:
 java -jar elephant-ctc-0.1.0.jar "../../Data/DIC-C2DH-HeLa/01" "../../Data/DIC-C2DH-HeLa/01_RES-allGT" "run_configs/DIC-C2DH-HeLa-01-allGT.json"
 ```
 
+Details of the parameters are shown below:
+
+- `INPUT_SEQUENCE`: A directory that includes images to analyze. The directory should contain .tif files for each timepoint.
+
+```bash
+Data/
+├── DIC-C2DH-HeLa
+│   ├── 01
+│   │   ├── t000.tif
+│   │   ├── t001.tif
+│   │   ...
+```
+
+- `OUTPUT_SEQUENCE`: A directory that stores the results in the following structure. The results are stored in .tif format for each timepoint.
+
+```bash
+Data/
+├── DIC-C2DH-HeLa
+│   ├── 01_RES-allGT
+│   │   ├── mask000.tif
+│   │   ├── mask001.tif
+│   │   ...
+```
+
+- `CONFIG_FILE`: The config file for inferece, as explained in the previous section.
+
 The source code for the java program can be found [here](https://github.com/ksugar/elephant-ctc).
