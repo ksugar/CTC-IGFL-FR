@@ -203,11 +203,9 @@ usage: generate_train_config.py [-h] --dataset_name DATASET_NAME
                                 [--aug_contrast AUG_CONTRAST]
                                 [--evalinterval EVALINTERVAL] [--is_3d]
                                 [--batch_size BATCH_SIZE] [--nmodels NMODELS]
-                                output
-
+                                output<br>
 positional arguments:
-  output                Output file name
-
+  output                Output file name<br>
 optional arguments:
   -h, --help            show this help message and exit
   --dataset_name DATASET_NAME [DATASET_NAME ...]
@@ -414,11 +412,9 @@ usage: generate_run_config.py [-h] --seg_model SEG_MODEL [--device DEVICE]
                               [--division_min_displacement DIVISION_MIN_DISPLACEMENT]
                               [--division_acceptable_distance DIVISION_ACCEPTABLE_DISTANCE]
                               [--dryrun]
-                              output
-
+                              output<br>
 positional arguments:
-  output                Output file name
-
+  output                Output file name<br>
 optional arguments:
   -h, --help            show this help message and exit
   --seg_model SEG_MODEL
