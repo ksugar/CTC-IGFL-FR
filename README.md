@@ -189,7 +189,6 @@ Instead of manually preparing these files, [generate_train_config.py](src/SW/gen
 miniconda/bin/python generate_train_config.py training.json --dataset DIC-C2DH-HeLa/01-GT-seg DIC-C2DH-HeLa/02-GT-seg --model_name DIC-C2DH-HeLa-GT-seg.pth --log_dir DIC-C2DH-HeLa-GT-seg --n_epochs 100
 ```
 
-
 <details>
 <summary>Usage details</summary>
 <pre>
@@ -369,30 +368,125 @@ More example config files can be found at the [run_configs](src/SW/run_configs/)
 }
 ```
 
-| paramter                     | description                                                                                                                                                                                             |
-| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| seg_model                    | Path to a model parameter file (<code>.pth</code>)                                                                                                                                                      |
-| device                       | "cuda" or "cpu"                                                                                                                                                                                         |
-| scales                       | Pixel/voxels sizes in physical scale in the order of [<code>X</code>, <code>Y</code>, <code>Z</code>].                                                                                                  |
-| c_ratio                      | Center ratio used to recover ellipses/ellipsoids from center prediction (generally it should be the same value as used in <code>prep/generate_generate_seg_labels.py</code> (default: <code>0.3</code>) |
-| p_thresh                     | Probability threshold for prediction. Pixels with a central probability higher than this value are subject to further processing.                                                                       |
-| r_min                        | Minimum threshold of radii of detections in physical scale. If at least one of the radii of a detection is smaller than this value, the detection is discarded.                                         |
-| r_max                        | Maximum threshold of radii of detections in physical scale. The radii of a detection larger than <code>r_max</code> become <code>r_max</code>.                                                          |
-| is_3d                        | `true` if data is 3D)                                                                                                                                                                                   |
-| use_2d                       | `true` should be specified always                                                                                                                                                                       |
-| is_pad                       | `true` should be specified always                                                                                                                                                                       |
-| use_opticalflow              | `false` should be specified always                                                                                                                                                                      |
-| use_interpolation            | `true` if interpolation of missing spots is turned on                                                                                                                                                   |
-| linking_threshold            | Threshold value for linking in physical scale. Links with smaller values than this value are accepted.                                                                                                  |
-| search_depth                 | The linking algorithm tries to find the parent spot up to the current timepoint - <code>search_depth</code>.                                                                                            |
-| search_neighbors             | The linking algorithm tries to find the parent spot up to <code>search_neighbors</code> in the target timepoint.                                                                                        |
-| max_edges                    | The linking algorithm accepts <code>max_edges</code> links at maximum for each parent spot.                                                                                                             |
-| division_min_displacement    | This value is combined with <code>division_acceptable_distance</code> to determin if a spot is dividing.                                                                                                |
-| division_acceptable_distance | This value is combined with <code>division_min_displacement</code> to determin if a spot is dividing                                                                                                    |
+| paramter                     | description                                                                                                                                                          |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| seg_model                    | Path to a model parameter file (<code>.pth</code>).                                                                                                                  |
+| device                       | "cuda" or "cpu"                                                                                                                                                      |
+| scales                       | Pixel/voxels sizes in physical scale in the order of [<code>X</code>, <code>Y</code>, <code>Z</code>].                                                               |
+| c_ratio                      | Center ratio used to recover ellipses/ellipsoids from center prediction (generally it should be the same value as used in <code>prep/generate_generate_seg_labels.py |
+| p_thresh                     | Probability threshold for prediction. Pixels with a central probability higher than this value are subject to further processing.                                    |
+| r_min                        | Minimum threshold of radii of detections in physical scale. If at least one of the radii of a detection is smaller than this value, the detection is discarded.      |
+| r_max                        | Maximum threshold of radii of detections in physical scale. The radii of a detection larger than <code>r_max</code> become <code>r_max</code>.                       |
+| is_3d                        | `true` if data is 3D)                                                                                                                                                |
+| use_2d                       | `true` should be specified always                                                                                                                                    |
+| is_pad                       | `true` should be specified always                                                                                                                                    |
+| use_opticalflow              | `false` should be specified always                                                                                                                                   |
+| use_interpolation            | `true` if interpolation of missing spots is turned on                                                                                                                |
+| linking_threshold            | Threshold value for linking in physical scale. Links with smaller values than this value are accepted.                                                               |
+| search_depth                 | The linking algorithm tries to find the parent spot up to the current timepoint - <code>search_depth</code>.                                                         |
+| search_neighbors             | The linking algorithm tries to find the parent spot up to <code>search_neighbors</code> in the target timepoint.                                                     |
+| max_edges                    | The linking algorithm accepts <code>max_edges</code> links at maximum for each parent spot.                                                                          |
+| division_min_displacement    | This value is combined with <code>division_acceptable_distance</code> to determin if a spot is dividing.                                                             |
+| division_acceptable_distance | This value is combined with <code>division_min_displacement</code> to determin if a spot is dividing.                                                                |
 
 <details>
 <summary>Linking algorithm</summary>
 Tracking is performed by looking up the parent spots in the previous timepoint by nearest-neighbour algorithm. The links with a distance smaller than <code>linking_threshold</code> are considered as link candidates. Each spot accepts <code>max_edges</code> links. If there are competing links, the link with a smaller displacement is adopted and the remaining spots look for the next closest spot up to <code>search_neighbors</code> neighbors. If no candidates are found in the current timepoint, the algorithm looks for the previous timepoints up to <code>search_depth</code> timepoints. This procedure was repeated up to five times to generate the links. In addition to this criteria, if two links from a parent spot are both smaller than <code>division_acceptable_distance</code>, the parent spot is also recognized as a dividing spot. The dividing spot would have larger displacement than <code>division_min_displacement</code> between two timepoints. If the spot is recognized as dividing, the spot accepts <code>max_edges</code> links at maximum, otherwise it accepts only one link regardless of <code>max_edges</code>.
+</details>
+
+Instead of manually preparing these files, [generate_run_config.py](src/SW/generate_run_config.py) can be used to generate a config file for inference.
+
+```bash
+miniconda/bin/python generate_run_config.py run.json --seg_model pretrained_models/allGT-seg.pth --scales 0.645 0.645 --c_ratio 0.5 --p_thresh 0.8 --r_min 1 --r_max 50 --use_interpolation
+```
+
+<details>
+<summary>Usage details</summary>
+<pre>
+usage: generate_run_config.py [-h] --seg_model SEG_MODEL [--device DEVICE]
+                              --scales size [size ...] [--c_ratio C_RATIO]
+                              [--p_thresh P_THRESH] [--r_min R_MIN]
+                              [--r_max R_MAX] [--is_3d] [--use_interpolation]
+                              [--linking_threshold LINKING_THRESHOLD]
+                              [--search_depth SEARCH_DEPTH]
+                              [--search_neighbors SEARCH_NEIGHBORS]
+                              [--max_edges MAX_EDGES]
+                              [--division_min_displacement DIVISION_MIN_DISPLACEMENT]
+                              [--division_acceptable_distance DIVISION_ACCEPTABLE_DISTANCE]
+                              [--dryrun]
+                              output
+
+positional arguments:
+  output                Output file name
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --seg_model SEG_MODEL
+                        Path to a model parameter file (.pth).
+  --device DEVICE       "cpu" or "cuda".
+                        default: "cuda"
+  --scales size [size ...]
+                        Pixel/voxels sizes in physical scale in the order of [X, Y(, Z)].
+  --c_ratio C_RATIO     Center ratio used to recover ellipses/ellipsoids from center prediction (generally it should be the same value as used in prep/generate_generate_seg_labels.py.
+                        default: 0.3
+  --p_thresh P_THRESH   Probability threshold for prediction. Pixels with a central probability higher than this value are subject to further processing.
+                        default: 0.5
+  --r_min R_MIN         Minimum threshold of radii of detections in physical scale. If at least one of the radii ofa detection is smaller than this value, the detection is discarded.
+                        default: 0
+  --r_max R_MAX         Maximum threshold of radii of detections in physical scale. The radii of a detection larger than r_max become r_max.
+                        default: 1e6
+  --is_3d               Specify if data is 3D.
+  --use_interpolation   Specify if interpolation of missing spots is turned on.
+  --linking_threshold LINKING_THRESHOLD
+                        Threshold value for linking in physical scale.
+                        Links with smaller values than this value are accepted.
+                        default: 5.0
+  --search_depth SEARCH_DEPTH
+                        The linking algorithm tries to find the parent spot up to the current timepoint - search_depth.
+                        default: 3
+  --search_neighbors SEARCH_NEIGHBORS
+                        The linking algorithm tries to find the parent spot up to search_neighbors in the target timepoint.
+                        default: 3
+  --max_edges MAX_EDGES
+                        The linking algorithm accepts max_edges links at maximum for each parent spot.
+                        default: 1
+  --division_min_displacement DIVISION_MIN_DISPLACEMENT
+                        This value is combined with division_acceptable_distance to determin if a spot is dividing.
+                        default: 1.0
+  --division_acceptable_distance DIVISION_ACCEPTABLE_DISTANCE
+                        This value is combined with division_min_displacement to determin if a spot is dividing.
+                        default: 1.0
+  --dryrun              Print output to the console instead of a file.
+</pre>
+</details>
+
+<details>
+<summary>Output (<code>run.json</code>)</summary>
+<pre>
+{
+    "seg_model": "pretrained_models/allGT-seg.pth",
+    "device": "cuda",
+    "scales": [
+        0.645,
+        0.645
+    ],
+    "c_ratio": 0.5,
+    "p_thresh": 0.8,
+    "r_min": 1.0,
+    "r_max": 50.0,
+    "is_3d": false,
+    "use_interpolation": true,
+    "linking_threshold": 5.0,
+    "search_depth": 3,
+    "search_neighbors": 3,
+    "max_edges": 1,
+    "division_min_displacement": 1.0,
+    "division_acceptable_distance": 1.0,
+    "use_2d": true,
+    "is_pad": true,
+    "use_opticalflow": false
+}
+</pre>
 </details>
 
 ### 3. Run a Java program for inference
