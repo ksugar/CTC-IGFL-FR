@@ -171,6 +171,7 @@ def main():
     config_dict = vars(args).copy()
     config_dicts = []
     config_dict.pop('output')
+    config_dict.pop('dryrun')
     for dataset in args.dataset_name:
         config_dict['dataset_name'] = dataset
         config_dicts.append(config_dict.copy())

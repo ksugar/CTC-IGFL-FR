@@ -280,8 +280,7 @@ optional arguments:
         "evalinterval": 10,
         "is_3d": false,
         "batch_size": 1,
-        "nmodels": 1,
-        "dryrun": false
+        "nmodels": 1
     },
     {
         "dataset_name": "DIC-C2DH-HeLa/02-GT-seg",
@@ -302,8 +301,7 @@ optional arguments:
         "evalinterval": 10,
         "is_3d": false,
         "batch_size": 1,
-        "nmodels": 1,
-        "dryrun": false
+        "nmodels": 1
     }
 ]
 </pre>
