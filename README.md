@@ -20,6 +20,13 @@ Source Code used in the Cell Tracking Challenge
 - Java
   - Java Runtime Environment 8 or higher (e.g. [AdoptOpenJDK](https://adoptopenjdk.net/)) is required to run the inference program.
 
+## Working directory
+
+All the following commands are supposed to be run in the `src/SW` directory. Please change your current directory as below to follow the instructions.
+
+```bash
+cd src/SW
+```
 ## Prepare data
 
 The `Data/` directory should have the same structure as the one provided in the CTC.
@@ -95,13 +102,13 @@ Data/
 (Optional) The following step is required only when your data is 3D.
 
 ```bash
-../miniconda/bin/python prep/convert_to_2d_labels.py ../../../Data/YOUR_DATA
+miniconda/bin/python prep/convert_to_2d_labels.py ../../Data/YOUR_DATA
 ```
 
 The following step is always required.
 
 ```bash
-../miniconda/bin/python prep/generate_seg_labels.py ../../../Data/YOUR_DATA ../train_data/YOUR_DATA
+miniconda/bin/python prep/generate_seg_labels.py ../../Data/YOUR_DATA train_data/YOUR_DATA
 ```
 
 ### 3. Prepare training config files
